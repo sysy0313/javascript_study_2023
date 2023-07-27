@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day03_event</title>
+</head>
+<body>
+    <div id="cart">
+        <h1>장바구니</h1>
+        <div class="contents">
+            <!-- 장바구니 목록 추가 영역 -->
+        </div>
+    </div>
+    <div class="event">
+        <!-- 인라인 스크립트 작성방법 (태그 내 js 작성법) -->
+        <button id="btn1" type="button" onmousedown="window.alert('error')">버튼1</button>
+        <button id="btn2" type="button" onclick="this.innerHTML='button2'">버튼2</button>
+        <!-- <태그 이벤트="객체.속성=값"></태그> -->
+        <!-- <태그 이벤트="객체.메서드(값)"></태그> -->
+        <!-- 외부스크립트 작성방법(이벤트 함수 호출) -->
+        <button id="btn3" type="button">버튼3</button>
+        <button id="btn4" type="button">버튼4</button>
+        <button id="btn5" type="button">버튼5</button>
+        <input type="text" placeholder="아이디 입력" id="user_id">
+    </div>
+    <script src="./script/day03_event.js"></script>
+    <script src="./script/day03_operator.js"></script>
+</body>
+</html>
