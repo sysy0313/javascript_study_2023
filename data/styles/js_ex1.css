@@ -1,0 +1,16 @@
+* {box-sizing:border-box; margin:0; padding:0; line-height:1.0; font-size:1.0em; font-weight:normal;}
+.wrap {border-radius:10px; width:480px; height:90vh; margin:15px auto 0; position:relative; background:#f1f1f1; padding:25px;}
+.wrap h2 {line-height:2.5; letter-spacing:-0.3px; font-size:0.91rem;}
+.wrap h2 span {font-size:2rem; font-weight:800;}
+.wrap #answer_btn {
+    position:absolute; bottom:25px; left:50%; 
+    margin-left:-40%; width:80%; 
+    background:#555; color:#fff; border:0; 
+    padding:20px 0; cursor:pointer; border-radius:10px;
+}
+.wrap #answer_btn:hover {background:#222;}
+.wrap #result, .wrap #result1, .wrap #result2, .wrap .result {
+    background:#fff; height:50px; width:80%;
+    padding:20px; margin-top:10px; outline:none; border:0;
+    display:block;
+}

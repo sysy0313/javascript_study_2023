@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js-1</title>
+    <link rel="stylesheet" href="styles/js_ex1.css">
+</head>
+<body>
+    <div class="wrap">
+        <h2><span>Q.</span><br>철수는 10,000원을 받고<br>과자2000원, 아이스크림1000원 어치를 샀어요.<br>남은 돈은 얼마일까요?</h2>
+        <button type="button" id="answer_btn">정답보기</button>
+        <input type="text" id="result" placeholder="답을 입력하세요">
+    </div>
+    <script>
+        // 변수생성
+        // 지갑, 과자, 아이스크림, 토탈, 정답보기버튼,  결과입력창
+        let wallet = 10000
+        let snack = 2000
+        let icecream = 1000
+        let total = 0
+        const answer_btn = document.querySelector('#answer_btn');
+        const result = document.querySelector('#result');
+        // 변수확인
+        console.log(total, answer_btn, result);
+        // 이벤트
+        answer_btn.addEventListener('click', function(){
+            total = wallet - snack - icecream;
+            result.value = `총 ${total.toLocaleString('ko-kr')}원입니다!`
+        })
+
+    </script>
+</body>
+</html>

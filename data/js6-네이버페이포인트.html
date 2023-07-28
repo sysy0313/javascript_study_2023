@@ -1,0 +1,59 @@
+<!-- 1008-naver-point.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js6 네이버포인트결제</title>
+    <style>
+        * {
+            margin:0; padding:0; box-sizing:border-box; line-height:1.0;
+            font-size:1.0rem; letter-spacing:-0.4px; list-style:none;
+        }
+        .n_point_wrap {
+            background:#f1f1f1; padding:10px; width:400px; margin:50px auto;
+            display:flex; flex-flow:row wrap; align-items:flex-end;
+        }
+        .n_point_wrap h1 {margin-bottom:20px;}
+        .n_point_wrap ul {background:rgba(255,255,255,0.5)}
+        .n_point_wrap ul li {}
+        .n_point_wrap ul li > span {font-size:0.875rem; padding:5px;}
+        .n_point_wrap ul li > .sub_title {}
+        .n_point_wrap ul li > .sub_contents {}
+        .n_point_wrap ul li > .sub_contents input {
+            text-align:right; border:0; background:0; outline:none; padding:5px;
+        }
+        .n_point_wrap ul li > .sub_contents .won {}
+        .n_point_wrap ul li > .sub_contents #user_point {}
+        .n_point_wrap ul li > .sub_contents #use_point {}
+        .n_point_wrap #point_all_btn {
+            cursor:pointer; height:25px; font-size:0.915rem; margin-left:10px;
+            background:#1fd771; color:#fff; border:0; padding:5px 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="n_point_wrap">
+        <h1>네이버페이 포인트 결제</h1>
+        <ul>
+            <li>
+                <span class="sub_title">보유</span>
+                <span class="sub_contents">
+                    <input type="text" id="user_point" readonly>
+                    <span class="won">원</span>
+                </span>
+            </li>
+            <li>
+                <span class="sub_title">사용</span>
+                <span class="sub_contents">
+                    <input type="text" id="use_point" value="0">
+                    <button type="button" id="point_reset">x</button>
+                    <span class="won">원</span>
+                </span>
+            </li>
+        </ul>
+        <button type="button" id="point_all_btn">전액사용</button>
+    </div>
+</body>
+</html>

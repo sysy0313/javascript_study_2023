@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 객체선택 변수</title>
+</head>
+<body>
+    <h1>h1</h1>
+    <h2 class="sub_title">h2-1</h2>
+    <h2 class="sub_title">h2-2</h2>
+    <h3>h3</h3>
+    <p>p-1</p>
+    <p id="main">p-2</p>
+    <button id="btn" type="button">button</button>
+    <a href="#" id="link">link text</a>
+    <script type="text/javascript">
+        //변수생성
+        const h1Tag = document.querySelector('h1'); 
+        const sub_title = document.querySelectorAll('.sub_title');
+        const h3Tag = document.querySelector('h3');
+        const pTag = document.querySelector('p');
+        const main = document.querySelector('#main');
+        const btn = document.querySelector('#btn');
+        const linkId = document.querySelector('#link');
+
+        //변수정상출력
+        console.log(h1Tag, sub_title[0], sub_title[1], h3Tag, pTag, main, btn, linkId);
+    </script>
+</body>
+</html>

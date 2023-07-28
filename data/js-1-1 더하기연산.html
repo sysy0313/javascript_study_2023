@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js-0</title>
+    <link rel="stylesheet" href="styles/js_ex1.css">
+</head>
+<body>
+    <div class="wrap" style="background:url(images/lian1.jpg) center; background-size:cover;">
+        <h2 style="font-weight:700; color:#fff;"><span>Q.</span><br>라이언은 3일 동안 벼락치기를 했어요.<br>
+            첫 날에는 10장,<br>
+            둘째 날에는 5장,<br>
+            셋째 날에는 8장을 공부했어요<br>
+            라이언이 공부한 3일치 총 장수는 몇장일까요?
+            </h2>
+        <button type="button" id="answer_btn">정답보기</button>
+        <input type="text" id="result" placeholder="답을 입력하세요" style="background:rgba(255,255,255,0.7)">
+    </div>
+    <script>
+        //변수 생성 = 첫째날(10장), 둘째날(5장), 셋째날(8장), 정답보기버튼, 답입력칸
+        let day1 = 10
+        let day2 = 5
+        let day3 = 8
+        const answer_btn = document.querySelector('#answer_btn');
+        const result_input = document.querySelector('#result')
+        console.log(answer_btn, result_input);
+        // 정답보기 (answer_btn)클릭 시 자바스크립트 호출되면서
+        // 정답, 오답 구분되는 결과 만들기
+        answer_btn.addEventListener('click',function(){
+            // window.alert('오답입니다');
+            // 객체.innerHTML 속성은 form외 나머지 태그들의 내용을 읽거나 수정할 때
+            // 객체.value 속성은 form input태그의 내용을 읽거나 수정할 때
+            result_input.value = '정답입니다';
+            //결과에)정답은 23장입니다!
+            // result_input.value = '정답은'+ (day1 + day2 + day3) + '입니다!' 
+            result_input.value = `정답은 ${day1+day2+day3}장입니다!`;
+        })
+    </script>
+</body>
+</html>

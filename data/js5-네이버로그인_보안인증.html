@@ -1,0 +1,47 @@
+<!-- 1007-if-idpw.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js6 로그인(보안인증 추가 2번오류시 실행)</title>
+    <style>
+        * {margin:0; padding:0; box-sizing:border-box; line-height:1.0;}
+        body, html {background:#f1f1f1;}
+        .login_box {
+            background:#fff; width:510px; margin:50px auto; padding:20px;
+            border-radius:10px; border:1px solid #ccc;
+        }
+        .login_box h1 {text-align:center; color:#03c75a; padding:20px 0;}
+        .login_box #loginFrm {}
+        .login_box #loginFrm fieldset {border:0;}
+        .login_box #loginFrm fieldset input {
+            width:100%; border:1px solid #aaa; padding:10px 15px;
+        }
+        .login_box #loginFrm fieldset input[type^=t] {}
+        .login_box #loginFrm fieldset input[type^=p] {margin-top:10px;}
+        .login_box #loginFrm fieldset #error_result {
+            padding:20px 0; color:#f00; font-size:0.875rem; line-height:1.5;
+        }
+        .login_box #loginFrm fieldset #login_btn {
+            background:#03c75a; color:#fff;
+            width:100%; cursor:pointer; padding:20px 0; border:0;
+        }
+    </style>
+</head>
+<body>
+    <div class="login_box">
+        <h1>NAVER</h1>
+        <form action="#" id="loginFrm" method="post">
+            <fieldset>
+                <legend style="display:none;">로그인양식</legend>
+                <input type="text" id="user_id" name="user_id" placeholder="아이디">
+                <input type="password" id="user_pw" name="user_pw" placeholder="비밀번호">
+                <p id="error_result">결과 나오는 위치</p>
+                <button type="button" id="login_btn">로그인</button>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
