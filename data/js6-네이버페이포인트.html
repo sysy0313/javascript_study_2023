@@ -54,6 +54,23 @@
             </li>
         </ul>
         <button type="button" id="point_all_btn">전액사용</button>
+        <script>
+            // 변수
+            const user_point = document.querySelector('#user_point')
+            const use_point = document.querySelector('#use_point')
+            const reset = document.querySelector('#point_reset')
+            const point_all = document.querySelector('#point_all_btn')
+            // 확인
+            console.log(user_point, use_point, reset, point_all)
+            user_point.value = 1000
+            // 이벤트
+            point_all.addEventListener('click', function(){
+                use_point.value = user_point.value
+                user_point.value = ""
+            })
+            
+
+        </script>
     </div>
 </body>
 </html>
