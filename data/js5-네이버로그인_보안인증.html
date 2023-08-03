@@ -22,7 +22,7 @@
         .login_box #loginFrm fieldset input[type^=t] {}
         .login_box #loginFrm fieldset input[type^=p] {margin-top:10px;}
         .login_box #loginFrm fieldset #error_result {
-            padding:20px 0; color:#f00; font-size:0.875rem; line-height:1.5;
+            padding:20px 0; color:#f00; font-size:0.875rem; line-height:1.5; /* opacity:0; */
         }
         .login_box #loginFrm fieldset #login_btn {
             background:#03c75a; color:#fff;
@@ -43,5 +43,31 @@
             </fieldset>
         </form>
     </div>
+    <script>
+        //네이버 로그인 조건
+        /*
+            1. 아이디 안 적고 비밀번호 적은 후 로그인 버튼 클릭 시 => 아이디오류
+            2. 아이디 적고 비밀번호 안 적고 로그인 버튼 클릭 시 => 비밀번호오류
+            3. 아이디, 비밀번호 모두 안 적고 로그인 버튼 클릭 시 => 아이디 비밀번호 입력하세요 메시지
+            4. 아이디 비밀번호 모두 입력하고 로그인 버튼 클릭 시 => 로그인 성공
+        */
+        const userId = document.querySelector('#user_id')
+        const userPw = document.querySelector('#user_pw')
+        const error_result = document.querySelector('#error_result')
+        const loginBtn = document.querySelector('#login_btn')
+        console.log(userId, userPw, error_result, loginBtn)
+        
+        loginBtn.addEventListener('click', function(){
+            if(userId.value !== '' && userPw.value !== ''){
+                error_result.innerHTML = '로그인성공'
+            }else if(userId.value === '' && userPw.value !== ''){
+                error_result.innerHTML = '아이디오류'
+            }else if(userId.value !== '' && userPw.value === ''){
+                error_result.innerHTML = '비밀번호오류'
+            }else {error_result.innerHTML = '아이디, 비밀번호를 입력하세요'}
+        })
+        
+
+    </script>
 </body>
 </html>
