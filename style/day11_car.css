@@ -1,0 +1,116 @@
+/* css */
+main {
+    width:1200px; margin:0 auto; text-align:center;
+}
+/* section */
+main section {padding:80px 0 30px;}
+main #video {}
+/* 공통제목 css */
+main section .category {
+    font-size:1.3333rem;; margin-bottom:25px; letter-spacing:-0.02em;
+}
+main section .category::after {
+    content:''; display:block; background:#aaaaaa; width:15px; height:2px;
+    margin:10px auto 0;
+}
+main section h1 {
+    font-size:1.5rem; font-weight:bold; letter-spacing:-0.02em;
+    margin-bottom:25px; 
+}
+main section .contents {
+    color:#666666; letter-spacing:-0.02em; font-weight:bold; margin-bottom:30px;
+}
+/* 카히스토리영상 */
+/* 카히스토리영상 - 탭 제목, 내용 */
+main #video .tab_title {}
+main #video .tab_title a {
+    letter-spacing:-0.02em; margin-right:20px; padding:20px 30px; display:inline-block;
+}
+main #video .tab_title a:last-child{margin-right:0;}
+main #video .tab_title a.active {
+    border-bottom:5px solid rgb(0, 140, 255); 
+}
+main #video .tab_contents {}
+main #video .tab_contents > div {padding:50px 0;}
+main #video .tab_contents .tab_c1 {
+    position:relative;
+}
+main #video .tab_contents .tab_c1 video {width:80%; margin:0 auto;}
+main #video .tab_contents .tab_c1 img {
+    width:200px;
+    position:absolute; right:30px; bottom: 0;}
+main #video .tab_contents .tab_c2 {}
+main #video .tab_contents .tab_c2 img {
+    width:80%; margin:0 auto;
+}
+main #video .tab_contents .active {}
+/* 자주 사용하는 메뉴 */
+/* 제목 */
+main #menu {}
+main #menu .tab_title {
+    border-bottom:1px solid #888; 
+    display:flex; flex-flow:row nowrap; justify-content:center; 
+}
+main #menu .tab_title a {
+    background:#fff;
+    display:inline-block; width:180px; height:50px; line-height:50px; margin-right:10px;
+    border:1px solid #aaa; border-bottom:1px solid #888;
+    position:relative; bottom:-1px;
+}
+main #menu .tab_title a:last-child {margin-right:0;}
+main #menu .tab_title a.active {
+    border:1px solid #888; 
+    border-top:3px solid rgb(0, 140, 255); border-bottom:1px solid #fff;
+}
+main #menu .tab_contents {}
+main #menu .tab_contents .tab_c1 {
+    display:flex; flex-flow:row nowrap; justify-content:space-between;
+    padding:80px 0; text-align:left;
+}
+/* left */
+main #menu .tab_contents .tab_c1 .left {width:50%;}
+main #menu .tab_contents .tab_c1 .left h2 {
+    font-size:1.5rem;  color:rgb(0, 140, 255); letter-spacing:-0.02em; 
+    margin-bottom:20px;;
+}
+main #menu .tab_contents .tab_c1 .left p:nth-of-type(1) { /* 이미지 */
+}
+main #menu .tab_contents .tab_c1 .left p:nth-of-type(2) {
+    line-height:25px; letter-spacing:-0.02em; 
+}
+main #menu .tab_contents .tab_c1 .left p img {
+    width:90%;
+}
+main #menu .tab_contents .tab_c1 .left p a {
+    letter-spacing:-0.02em; color:rgb(0, 140, 255);
+}
+/* right */
+main #menu .tab_contents .tab_c1 .right {
+    width:50%; padding:0 20px;
+}
+main #menu .tab_contents .tab_c1 .right h3 {
+    font-size:1.2rem; font-weight:bold; color:#333;
+    margin-bottom:30px;
+}
+main #menu .tab_contents .tab_c1 .right ul {}
+main #menu .tab_contents .tab_c1 .right ul li {
+    display:flex; flex-flow:row nowrap; align-items:center;
+    border-bottom:1px dashed #aaaaaa;
+    padding:25px 0 5px;
+}
+main #menu .tab_contents .tab_c1 .right ul li:last-child {border-bottom:none;}
+main #menu .tab_contents .tab_c1 .right ul li p {margin-right:20px;}
+main #menu .tab_contents .tab_c1 .right ul li p img {}
+main #menu .tab_contents .tab_c1 .right ul li .contents {
+    
+}
+main #menu .tab_contents .tab_c1 .right ul li .contents .num {
+    font-weight:bold; color:rgb(0, 140, 255); margin-bottom:10px;
+}
+main #menu .tab_contents .tab_c1 .right ul li .contents .con {letter-spacing:-0.02em; color:#666666;}
+main #menu .tab_contents .tab_c1 .right ul li .contents .con em {
+    font-weight:bold; color:#333; font-size:1.2rem; letter-spacing:-0.02em; 
+}
+main #menu .tab_contents .tab_c2 {height:600px}
+main #menu .tab_contents .tab_c3 {height:600px}
+main #menu .tab_contents .tab_c4 {height:600px}

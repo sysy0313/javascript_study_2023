@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="KO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day11_카히스토리</title>
+    <link rel="stylesheet" href="./style/reset.css">
+    <link rel="stylesheet" href="./style/day11_car.css">
+
+</head>
+<body>
+    <main>
+        <!-- 영상 위치 -->
+        <section id="video">
+            <p class="category">video</p>
+            <h1>카히스토리 영상</h1>
+            <p class="contents">영상을 통해 카히스토리 사용방법 등 자세한 정보를 확인해보세요.</p>
+            <!-- 탭시작 -->
+            <div class="tab_title">
+                <a href="#" class="active">안내</a>
+                <a href="#">사용방법</a>
+            </div>
+            <div class="tab_contents">
+                <div class="tab_c1 active">
+                    <video src="./carhistory_image/carhistory.mp4" autoplay muted loop></video>
+                    <img src="./carhistory_image/video.png" alt="">
+                </div>
+                <div class="tab_c2">
+                    <img src="./carhistory_image/hero-bg-md-01.gif" alt="">
+                </div>
+            </div>
+        </section>
+        <!-- 자주 사용하는 메뉴 -->
+        <section id="menu">
+            <p class="category">menu</p>
+            <h1>자주 사용하는 메뉴</h1>
+            <p class="contents">자주 사용하는 메뉴로 카히스토리를 보다 편리하게 이용하세요.</p>
+            <div class="tab_title">
+                <a href="#" class="active">사고이력조회</a>
+                <a href="#">정보이용료</a>
+                <a href="#">조회방법</a>
+                <a href="#">용어설명</a>
+            </div>
+            <div class="tab_contents">
+                <div class="tab_c1">
+                    <div class="left">
+                        <h2>사고이력조회 &gt;</h2>
+                        <p><img src="./carhistory_image/car-new.png" alt=""></p>
+                        <p> 관련메뉴<br>
+                            -조회가 원활하게 안되시나요?
+                            <a href="#">고객문의 바로가기&gt;</a>
+                        </p>
+                    </div><!-- left end -->
+                    <div class="right">
+                        <h3>왜 사고 이력 조회가 필수인가?</h3>
+                        <ul>
+                            <li>
+                                <p><img src="./carhistory_image/menu-1-1.png" alt=""></p>
+                                <div class="contents">
+                                    <p class="num">01</p>
+                                    <p class="con">
+                                        <em>평균 사고 건수 2.93건</em>
+                                        (2016년 카히스토리 조회차량 기준)
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <p><img src="./carhistory_image/menu-1-2.png" alt=""></p>
+                                <div class="contents">
+                                    <p class="num">02</p>
+                                    <p class="con"><em>운전자의 안전을 위협하는 침수, 전손 확인</em></p>
+                                </div>
+                            </li>
+                            <li>
+                                <p><img src="./carhistory_image/menu-1-3.png" alt=""></p>
+                                <div class="contents">
+                                    <p class="num">03</p>
+                                    <p class="con"><em>허위 매물 방지</em></p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div><!-- right end -->
+                </div><!-- tab_c1 end -->
+                <div class="tab_c2">정보이용료 내용</div>
+                <div class="tab_c3">조회방법 내용</div>
+                <div class="tab_c4">용어설명 내용</div>
+            </div>
+        </section>
+    </main>
+    <script>
+        //카히스토리 영상 탭 js
+        //1. 안내 초기 보이기 (사용 방법 초기 숨기기)
+        //2. 사용방법 탭 제목 클릭 시 사용방법 내용 보이기 (안내 내용 숨기기)
+        //3. 안내 탭 제목 클릭 시 안내 내용 보이기 (사용방법 내용 숨기기)
+        //변수
+        const videoTabTitle = document.querySelectorAll ('#video .tab_title a')
+        const videoTabContent = document.querySelectorAll('#video .tab_contents > div')
+        console.log(videoTabTitle, videoTabContent)
+        //1. 안내 초기 보이기 (사용 방법 초기 숨기기)
+        videoTabContent[1].style.display = 'none'
+        /*
+        DOM 객체 2개 이상을 변수 querySelectorAll 로 저장했을 경우 자바스크립트 속성 및 메서드로 활용하고자 하는 경우
+        바로 변수명을 작성하지 않고 인덱스 번호를 작성해서 이용해야 한다.
+        DOM변수명 x
+        DOM변수명[인덱스] O
+        2개 이상을 동시에 처리하기 위해 for를 사용하는 경우라면 인덱스를 표기하지 않기도 한다.
+        */
+        //for 를 이용한 반복문으로 인덱스 없이 처리하는 방법
+        /* for(let i of videoTabContent){
+            console.log(i)
+        } */
+        //2. 사용방법 탭 제목 클릭 시 사용방법 내용 보이기 (안내 내용 숨기기)
+        /*
+            a태그에 자바스크립트 클릭 이벤트 적용 시
+            화면 새로고침으로 스크롤이 위로 올라가는 문제가 발생한다.
+            이유 = a href의 고유속성때문
+            해결방법 = href기능 막아주는 자바스크립트 매서드 추가
+                클릭 이벤트 함수의 매개변수를 생성하면 
+                매개변수에 href 속성이 담기므로 해당 매개변수를 활용
+                preventDefault() 메서드를 연결해서 기능 막기
+        */
+        /* videoTabTitle[1].addEventListener('click', function(e){
+            e.preventDefault()
+            videoTabContent[0].style.display = 'none'
+            videoTabContent[1].style.display = 'block'
+        })
+        videoTabTitle[0].addEventListener('click', function(e){
+            e.preventDefault()
+            videoTabContent[0].style.display = 'block'
+            videoTabContent[1].style.display = 'none'
+        }) */
+        //위 개별 이벤트 for 문으로 처리하기
+        /*
+        2개 이상의 DOM 객체변수 (querySelectorAll 선언대상)
+        for ~ of 사용 경우
+            >> 동일 객체변수에 동일한 속성, 메서드 적용할 때
+            >> tabTitle 2개 대상을 가진 변수에 같은 속성 적용할 때
+        forEach
+            >> 2개 이상의 동일객체변수가 인덱스가 통일됐을 경우
+                해당 변수들의 속성, 메서드를 적용할 때
+            >> tabTitle 2개, TabContents 2개의 변수에 같은 속성 적용
+            >> forEach 첫번째 선언변수는 이벤트 제어 대상으로
+            >> forEach 함수 내 선언변수는 이벤트 결과대상으로
+            >> 변수.forEach(function(매개변수들){실행함수})
+        */ 
+        videoTabTitle.forEach(function(target, index, array){
+            target.addEventListener('click', function(e){
+                e.preventDefault()
+                //클릭이벤트 안에서는 이벤트 대상의 인덱스만 인식한다.
+                console.log(index)
+                //모두 숨기기
+                for(let i of videoTabContent){i.style.display = 'none'}
+                //클릭한 객체 인덱스와 동일한 인덱스의 다른 요소 체크!
+                videoTabContent[index].style.display = 'block'
+                //for문 활용해서 동일 인덱스 출력을 진행할 경우
+                /*
+                출력 외 대상을 숨길 때는 정확히 어떤 인덱스를
+                숨길거냐 정하는 것이 아닌 대상 모두를 숨기고 그 중
+                해당되는 인덱스만 출력하는 방향으로 진행된다.
+                */
+                for(let i of videoTabTitle){i.classList.remove('active')}
+                target.classList.add('active')
+            })
+        })
+        //자주 사용하는 메뉴 탭js
+        //0. 필요한 변수생성
+        //1. 사고 이력 조회 내용 외 다른 내용 숨기기
+        //2. 각 탭 제목 클릭시 연관된 내용 보이기 forEach 문 구성
+        //-------------------------------
+        //0. 변수생성
+        const menuTabTitle = document.querySelectorAll('#menu .tab_title > a')
+        const menuTabContent = document.querySelectorAll('#menu .tab_contents > div')
+        console.log(menuTabTitle, menuTabContent)
+        //1. 사고 이력 조회 내용 외 다른 내용 숨기기
+        for(let i of menuTabContent){i.style.display = 'none'}
+        menuTabContent[0].style.display = 'flex';
+        //2. 각 탭 제목 클릭 시 연관된 내용 보이기 forEach문
+        menuTabTitle.forEach(function(target, index, array){
+            target.addEventListener('click', function(e){
+                e.preventDefault()
+                for(let i of menuTabContent){i.style.display = 'none';}
+                menuTabContent[index].style.display = 'flex'
+                for(let i of menuTabTitle){i.classList.remove('active')}
+                target.classList.add('active')
+            })
+        })//forEach end
+        
+    </script>
+</body>
+</html>
