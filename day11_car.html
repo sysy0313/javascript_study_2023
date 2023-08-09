@@ -146,6 +146,13 @@
         videoTabTitle.forEach(function(target, index, array){
             target.addEventListener('click', function(e){
                 e.preventDefault()
+                // 8/9 추가 class active 호출용
+                // DOM.classList.add('적용클래스명')
+                // DOM.classList.remove('제거클래스명')
+                //remove로 모두제거
+                for(let i of videoTabTitle){i.classList.remove('active')}
+                //개별 target add class 적용
+                target.classList.add('active')
                 //클릭이벤트 안에서는 이벤트 대상의 인덱스만 인식한다.
                 console.log(index)
                 //모두 숨기기
@@ -158,8 +165,6 @@
                 숨길거냐 정하는 것이 아닌 대상 모두를 숨기고 그 중
                 해당되는 인덱스만 출력하는 방향으로 진행된다.
                 */
-                for(let i of videoTabTitle){i.classList.remove('active')}
-                target.classList.add('active')
             })
         })
         //자주 사용하는 메뉴 탭js
@@ -180,7 +185,9 @@
                 e.preventDefault()
                 for(let i of menuTabContent){i.style.display = 'none';}
                 menuTabContent[index].style.display = 'flex'
+                // 전체 클래스 제거 classList.remove()
                 for(let i of menuTabTitle){i.classList.remove('active')}
+                // 개별 클래스 추가 classList.add()
                 target.classList.add('active')
             })
         })//forEach end

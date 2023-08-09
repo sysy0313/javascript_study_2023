@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day11_class2</title>
+    <link rel="stylesheet" href="./style/reset.css">
+    <style>
+        header {}
+        header nav {}
+        header nav > a {
+            display:block;
+            background:#eee; padding:20px;
+        }
+        header nav > .sub {
+            display:flex; flex-flow:column nowrap; 
+            height:200px; overflow:hidden; transition:height 0.5s;
+            background:lime;
+        }
+        header nav > .sub a {
+            background:#222; color:#fff;
+            padding:20px; border-bottom:1px dotted #eee;
+        }
+        .showHide {display:none !important;}
+        .heightCls {height:0 !important;}
+        /* js 호출용 */
+        /*
+        방법1 js 호출용의 클래스는 대상에 적용되어있는
+        기존 클래스와 부모 선택자가 다르면 우선순위에서 밀려서
+        적용이 되지 않을 수 있다.
+        해결법 => 기존 대상과 동일한 부모 선택자 구성하기!
+        */
+        /* header nav > .showHide {display:none;} */
+        /* 방법2. 부모 관계없이 강제우선순위 키워드 적용
+        우선순위 키워드는 속성 1개마다 사용,
+        속성이 3개라면 = 우선순위 키워드도 3개
+        주의사항)important가 겹쳐져 있으면 원하는 속성이 적용안되는 큰 문제가 생길 수 있다.
+        필요한 경우에만 대상에 1번 적용하는 식으로 주의해서 사용해야 한다.
+        */
+        
+        
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#">메뉴</a>
+            <div class="sub">
+                <a href="#">서브메뉴1</a>
+                <a href="#">서브메뉴2</a>
+            </div>
+        </nav>
+    </header>
+    <script>
+        //메뉴 클릭 시 .sub 대상 showHide 클래스 토글 적용
+        const nav_a = document.querySelector('nav > a')
+        const sub = document.querySelector('nav .sub')
+        console.log(nav_a, sub)
+        nav_a.addEventListener('click', function(){
+            // sub.classList.toggle('showHide')
+            sub.classList.toggle('heightCls')
+        })
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day11_class</title>
+    <style>
+        /* 2개 이상의 속성을 가진 클래스 준비(js 적용) */
+        .design1 {
+            background-color:yellow;
+            color:blue;
+            font-size:2rem;
+            width:300px; height:300px;
+        }
+        .design2 {
+            background-color:aqua;
+        }
+        .display {display:none;}
+        .replace {
+            transform:rotate(10deg) translateY(50px);
+            font-size:3rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- js 제어버튼은 type을 항상 button(범용기능) 설정 -->
+    <button id="btn" type="button">적용</button>
+    <button id="reset" type="button">해제</button>
+    <button id="toggle" type="button">ON/OFF</button>
+    <button id="replace" type="button">교체</button>
+    <div>변경대상</div>
+    <script>
+        const btn = document.querySelector('#btn')
+        const reset = document.querySelector('#reset')
+        const target = document.querySelector('div')
+        const toggle = document.querySelector('#toggle')
+        const replace = document.querySelector('#replace')
+        
+        console.log(btn, reset, target, toggle, replace)
+        toggle.addEventListener('click', function(){
+            target.classList.toggle('display')
+        })
+        replace.addEventListener('click', function(){
+            target.classList.replace('design2', 'replace')
+        })
+        //연습문제
+        //btn 클릭 시 target 배경색 -노랑
+        //btn 클릭 시 target 글자색 -파랑
+        //btn 클릭 시 target 글자크기 -2rem
+        btn.addEventListener('click', function(){
+            //대상 style 속성 사용하는 경우 = 속성이 1~2개 일 경우
+            /* target.style.backgroundColor = 'yellow'
+            target.style.color = 'blue'
+            target.style.fontSize = '2rem' */
+            //대상 class 속성 사용하는 경우 = 속성이 3개 이상일 경우
+            //준비사항 : 내부 또는 외부 스타일시트에 class  준비
+            /* target.className = 'design1'
+            target.className += ' design2' */
+            //add 메서드 사용 시는 대입 연산자가 들어가지 않기 때문에
+            //복합대입이나 공백 표시를 넣지 않아도 클래스를
+            //편하게 추가할 수 있다.
+            target.classList.add('design1')
+            target.classList.add('design2')
+        })
+        reset.addEventListener('click', function(){
+            target.classList.remove('design1', 'design2')
+            // target.classList.remove('design2')
+        })
+
+    </script>
+</body>
+</html>
