@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day12-dom</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <div id="box2">
+            <p class="p">1</p>
+            <p class="p">2</p>
+            <p class="p">3</p>
+        </div>
+    </div>
+    <script>
+        //변수
+        const box1 = document.querySelector('#box1')
+        const box2 = document.querySelector('#box2')
+        const p = document.querySelectorAll('.p')
+        console.log(box1, box2, p)
+        //DOM 제어
+        //1. 생성 createElement()
+        const span = document.createElement('span')
+        span.innerHTML = '로그인이 실패했습니다.'
+        console.log(span) 
+        p[2].appendChild(span)
+        //2. DOM 부모선택법>> 자식.ParentNode
+        console.log(p[0].parentNode) //#box2
+        //main p span {}
+        console.log(p[0].parentNode.parentNode) //#box1
+        p[0].parentNode.style.backgroundColor = 'aqua'
+        //3.  DOM 형제 선택법
+        // 이전형제 >> 기준대상.previousElementSibling
+        // 다음형제 >> 기준대상.nextElementSibling
+        console.log(p[1].previousElementSibling)//p1
+        console.log(p[1].nextElementSibling)//p3
+        console.log(p[0].nextElementSibling.nextElementSibling)//p3
+        //p[1].nextElementSibling.style.backgroundColor = 'pink'
+        //p[1].previousElementSibling.style.backgroundColor = 'orange'
+        p[0].nextElementSibling.style.color = 'red'
+        p[0].nextElementSibling.style.textAlign = 'center'
+        //4. DOM 자식선택법
+        //부모.childNodes 공백포함 자식선택
+        //부모.children 요소만 인식*
+        //부모.firstElementChild 첫번째 자식 인식(공백x)*
+        //부모.lastChild 마지막 자식 인식(공백포함)
+        //부모.lastElementChild 마지막 자식 인식 (공백x)*
+        console.log(box2.childNodes)//공백까지 인식
+        console.log(box2.children)//p*3
+        console.log(box2.firstElementChild)//p1
+        console.log(box2.lastElementChild)//p3
+        box2.firstElementChild.style.background = 'pink'
+        //children 모든 자식 p한테 글자 크기 2rem
+        // box2.children.style.fontSize = '2rem'
+        for(let i of box2.children){
+            i.style.fontSize = '2rem'
+        }
+    </script>
+</body>
+</html>

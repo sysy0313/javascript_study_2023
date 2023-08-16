@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day12_UNID</title>
+    <link rel="stylesheet" href="./style/reset.css">
+    <style>
+        header {
+            width:100%; height:100px; 
+            background:rgba(255,255,255,0.5);
+            position:fixed; left:0; top:0; z-index:999;
+            padding:0 30px;
+            display:flex; flex-flow:row nowrap; justify-content:space-between;
+            align-items:center;
+                }
+        header h1 {}
+        header h1 a {}
+        header h1 a  img {}
+        /* nav */
+        header nav {}
+        header nav a {
+            white-space:nowrap;
+        }
+        header nav .nav_bg {
+            position:absolute; 
+            background:#fff; width:100%; height:500px; left:0;
+            z-index:100;
+        }
+        header nav .gnb {
+            display:flex; flex-flow:row nowrap; align-items:center;
+            
+        }
+        header nav .gnb > li {
+            position:relative;
+        }
+        header nav .gnb > li > a{
+            display:block; height:100px;
+            line-height:100px;
+            font-size:1.3rem; font-weight:bold; letter-spacing:-0.02em;
+            padding:0 70px 0 30px;
+        }
+        /* header nav .gnb > li:hover > a {color:rgb(7,104,72);} */
+        /* sub1 */
+        header nav .gnb > li > .sub1 {
+            /* height:500px; */ width:100%; 
+            position:absolute; top:100px; 
+            z-index:200;
+            background:#fff;
+        }
+
+        /* header nav .gnb > li:hover > .sub1{
+            background:#ccc;
+        } */
+        header nav .gnb > li > .sub1 > li {}
+        header nav .gnb > li > .sub1 > li > a{
+            display:block;
+            font-size:1rem; padding:15px 5px 15px 30px;
+            font-weight:bold; letter-spacing:-0.02em;
+        }
+        header nav .gnb > li > .sub1 a:hover {
+            color:rgb(7,104,72) !important;
+        }
+        /* header nav .gnb > li > .sub1 > li > a:hover {color:rgb(7,104,72);} */
+        /* sub2 */
+        header nav .gnb > li > .sub1 > li > .sub2 {}
+        header nav .gnb > li > .sub1 > li > .sub2 li {}
+        header nav .gnb > li > .sub1 > li > .sub2 li a{
+            display:block; 
+            padding:10px 10px 10px 40px; ;
+            color:#aaa; font-weight:bold;
+            border-bottom:1px dashed #aaa;
+        }
+        
+        
+        /* m_nav */
+        header #m_nav {
+            display:flex; flex-flow:column nowrap; justify-content:space-between;
+            width:32px; height:32px;
+        }
+        header #m_nav span {
+            height:7px; background:rgb(7,104,72)
+        }
+        header #m_nav span:nth-child(1) {}
+        header #m_nav span:nth-child(2) {}
+        header #m_nav span:nth-child(3) {}
+        /* main */
+        main {
+            height:100vh;
+            background:url(./unid/bg.jpg) center;
+            background-size:cover;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="#"><img src="./unid/logo.png" alt="유니드"></a></h1>
+        <nav>
+            <ul class="gnb">
+                <li>
+                    <a href="#">회사소개</a>
+                    <ul class="sub1">
+                        <li><a href="#">회사소개</a></li>
+                        <li><a href="#">CEO 인사말</a></li>
+                        <li><a href="#">연혁</a></li>
+                        <li><a href="#">2030 VISION</a></li>
+                    </ul>
+                </li><!-- gnb-1 회사소개 end -->
+                <li>
+                    <a href="#">사업부소개</a>
+                    <ul class="sub1"><!-- sub, depth -->
+                        <li>
+                            <a href="#">화학사업부(CA)</a>
+                            <ul class="sub2">
+                                <li><a href="#">수산화칼륨</a></li>
+                                <li><a href="#">탄산칼륨</a></li>
+                                <li><a href="#">염산</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">보드사업부(BT)</a>
+                            <ul class="sub2">
+                                <li><a href="#">MDF</a></li>
+                                <li><a href="#">LPM</a></li>
+                                <li><a href="#">제재목</a></li>
+                                <li><a href="#">GOSSPAN</a></li>
+                                <li><a href="#">ECOPAN</a></li>
+                                <li><a href="#">올고다 마루</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li><!-- gnb-2 사업부소개 end -->
+                <li>
+                    <a href="#">투자정보</a>
+                    <ul class="sub1">
+                        <li><a href="#">경영정보</a></li>
+                        <li><a href="#">재무정보</a></li>
+                        <li><a href="#">주가정보</a></li>
+                        <li><a href="#">공시자료</a></li>
+                        <li><a href="#">IR자료실</a></li>
+                    </ul>
+                </li><!-- gnb-3 투자정보 end -->
+                <li>
+                    <a href="#">지속가능경영</a>
+                    <ul class="sub1">
+                        <li><a href="#">윤리경영</a></li>
+                        <li><a href="#">안전환경경영</a></li>
+                        <li><a href="#">사회공헌</a></li>
+                    </ul>
+                </li><!-- gnb-4 지속가능경영 end -->
+                <li>
+                    <a href="#">채용</a>
+                    <ul class="sub1">
+                        <li><a href="#">채용사이트</a></li>
+                    </ul>
+                </li><!-- gnb-5  채용 end -->
+                <li>
+                    <a href="#">고객센터</a>
+                    <ul class="sub1">
+                        <li><a href="#">뉴스</a></li>
+                        <li><a href="#">홍보동영상</a></li>
+                    </ul>
+                </li><!-- gnb-6 고객센터 end -->
+            </ul><!-- gnb end -->
+            <div class="nav_bg"></div>
+        </nav>
+        <a href="#" id="m_nav" title="모바일메뉴열기">
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+    </header>
+    <main></main>
+    <script>
+        /*
+            1. 서브메뉴, 서브배경 모두 숨기기
+            2. gnb메뉴에서 마우스 올렸을 때, 서브메뉴, 서브배경 보이기
+            3. 메뉴에서 마우스 나갔을 때 서브메뉴, 서브배경 숨기기
+            (디자인추가)
+            1. gnb 마우스 올렸을 시 서브메뉴 배경색 #ccc 적용하기
+            2. gnb 마우스 올렸을 시 (서브메뉴로 나가도 유지)
+            gnb 글자색 녹색유지 
+        */
+        // 변수 
+        const nav_bg = document.querySelector('.nav_bg')
+        const sub = document.querySelectorAll('.sub1')
+        const gnb = document.querySelectorAll('.gnb > li')
+        console.log(nav_bg, sub, gnb)
+        nav_bg.style.display = 'none'
+        for(let i of sub){i.style.display = 'none'}
+        // gnb 마우스 올렸을 시 gnb 해당 sub 출력하기
+        for(let i of gnb){
+            i.addEventListener('mouseover', function(){
+                i.lastElementChild.style.display = 'block'
+                i.firstElementChild.style.color = 'rgb(7,104,72)'
+            })
+            i.addEventListener('mouseout', function(){
+                i.lastElementChild.style.display = 'none'
+                i.firstElementChild.style.color = 'rgb(0,0,0)'
+            })
+        }
+    </script>
+</body>
+</html>
