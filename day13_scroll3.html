@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day13_scroll - 3</title>
+    <style>
+        body, html {
+            height:300vh; background:linear-gradient(aqua, lime, yellow, pink);
+            /* 스크롤 제어 애니메이션 CSS (body선택자에)*/ 
+            scroll-behavior:smooth;
+        }
+        #pst {
+            position:fixed; top:50px; left:50px; background:#eee; padding:20px;
+        }
+        #container section {
+            height:100vh; text-align:center;
+            border:5px solid #fff;
+        }
+        #container section h1 {
+            padding-top:50vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="pst">
+        <button class="tab" type="button">상품정보</button>
+        <button class="tab" type="button">리뷰</button>
+        <button class="tab" type="button">질문답변</button>
+    </div>
+    <div id="container">
+        <section><h1>상품정보</h1></section>
+        <section><h1>리뷰</h1></section>
+        <section><h1>질문답변</h1></section>
+    </div>
+    <script>
+        // 자바스크립트의 스크롤 제어
+        const tabBtn = document.querySelectorAll('.tab')
+        const section = document.querySelectorAll('section')
+        console.log(tabBtn, section) //3, 3
+        //pageYOffset 스크롤을 사용자가 얼마나 움직였는지?
+        //클릭했을 때 실행 -> click event
+        //스크롤 했을 때 실행 -> scroll event(선행)
+        window.addEventListener('scroll', function(){
+            console.log(window.pageYOffset)//현재 스크롤 이동 값
+            //300보다 스크롤값이 크면 tabBtn이 보이기
+            // tabBtn 초기 숨기기
+            for(let i of tabBtn){i.style.display = 'none'}
+            //300보다 작으면 tabBtn 보이기
+
+            if(window.pageYOffset > section[1].offsetTop-300){
+            for(let i of tabBtn){i.style.display = 'inline-block'}
+            }else{
+                //300보다 스크롤값이 작으면 숨기기
+                for(let i of tabBtn){i.style.display = 'none'}
+            }
+        })
+        
+        
+    </script>
+</body>
+</html>

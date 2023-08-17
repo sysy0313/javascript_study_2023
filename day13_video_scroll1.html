@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day13_video_scroll-1</title>
+    <link rel="stylesheet" href="./style/reset.css">
+    <style>
+        main {position:relative; z-index:999;}
+        main h1, main h2 {
+            line-height:100vh; text-align:center;  font-size:3.5rem;
+            color:#fff; font-weight:700;
+        }
+        main h2 {}
+        main h3 {
+            line-height:1.5;
+            text-align:center; font-size:4rem; padding:500px 0;
+            color:#fff; font-weight:700;
+
+        }
+        .container {
+            width:100%;
+            position:fixed; left:0; top:0;
+        }
+        .container img  {
+            width:100%; 
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 스크롤과 함께 움직이는 컨텐츠요소 -->
+    <main>
+        <h1>MacBook Air</h1>
+        <h2>15모델로 만나다</h2>
+        <h3>크게 펼치고, <br>얇게 접다.</h3>
+    </main>
+    <!-- 스크롤 동작에 따라 (고정)이미지 변경 요소 -->
+    <div class="container">
+        <img src="./video/1.jpg" alt="">
+    </div>
+    <!-- script -->
+    <script>
+        const imgElem = document.querySelector('.container img'); //이미지변경대상
+		const videoImages = []; //빈 배열 준비(생성 이미지 삽입 위치)
+		let totalImagesCount = 283; //총 이미지 개수 변수 생성
+		let progress; //스크롤 바 위치 저장 변수
+		let currentFrame; //스크롤 시 움직이는 (현재) 이미지 프레임번호 저장 변수
+
+		function setImages() {//이미지 생성 함수 시작
+			for (let i = 1; i <= totalImagesCount; i++) { //이미지번호 기준 1~258까지 이미지 번호 반복
+				let imgElem = document.createElement('img')//이미지 생성
+				imgElem.src = `./video/${i}.jpg`;//이미지 경로, 번호 대입
+				videoImages.push(imgElem);//배열의 뒤쪽으로 이미지 258개 순차 생성
+			}
+		}//이미지 생성 함수 종료
+		function init() {//스크롤 동작 함수 시작
+			//document.body.classList.remove('before-load');
+			window.addEventListener('scroll', function () {
+				//얼마나 스크롤했는가 pageYOffset
+				//전체 화면 (height:500vh) 높이에서  document.body.offsetHeight
+				//화면 높이를 제외한(뷰포트1영역기준) window.innerHeight
+				//==> 전체 스크롤 가동범위 안에서 현재 스크롤 양 구하기 progress
+				progress = pageYOffset / (document.body.offsetHeight - window.innerHeight);
+				//if (progress < 0) progress = 0;
+				//if (progress > 1) progress = 1;
+
+				//소수점 이하 반올림 함수 Math.round()
+				//전체 이미지 개수 * progress 스크롤 값 = 현재 프레임 변수 저장
+				currentFrame = Math.round((totalImagesCount - 1) * progress);
+				//이미지 요소의 src속성으로 생성이미지변수의 현재 프레임값의 경로 대입
+				imgElem.src = videoImages[currentFrame].src;
+				
+			});
+		}//스크롤 동작 함수 종료
+
+		//화면 로드 후 스크롤 동작 함수 부르기
+		window.addEventListener('load', init);
+		//이미지 생성 함수 호출
+		setImages();
+
+    </script>
+</body>
+</html>

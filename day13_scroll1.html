@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day13_scroll - 1</title>
+    <style>
+        body, html {
+            height:300vh; background:linear-gradient(aqua, lime, yellow, pink);
+            /* 스크롤 제어 애니메이션 CSS (body선택자에)*/ 
+            scroll-behavior:smooth;
+        }
+        #pst {
+            position:fixed; top:50px; left:50px; background:#eee; padding:20px;
+        }
+    </style>
+</head>
+<body>
+    <button id="pst" type="button">위치제어</button>
+    
+    <script>
+        // 자바스크립트의 스크롤 제어
+        const pstBtn = document.querySelector('#pst')
+        console.log(pstBtn)
+        pstBtn.addEventListener('click', function(){
+            // scrollBy 현재 스크롤 위치 기준으로 스크롤 이동 상대좌표 기준 메소드
+            window.scrollBy(0,100)
+            // scrollTo 윈도우의 절대좌표 기준 이동 메소드
+            //window.scrollTo(0,200);
+            //(위) 스크롤 이동 시 단순 x, y 좌표값으로 이동할 때
+            //(아래) 스크롤 이동 시 다른 함수 호출이 필요할 때
+            // window.scrollTo({left:0, top:0})
+
+        })
+    </script>
+</body>
+</html>
