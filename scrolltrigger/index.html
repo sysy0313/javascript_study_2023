@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반얀트리 해운대 부산</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        main .bg3 .txt h1.active {
+            color:pink; transform:skewX(10deg) translateY(-10px);
+            opacity:0.7; background:gray;
+            transition:all 2s;
+        }
+    </style>
+</head>
+<body>
+    <div id="popup"><a href="#">이너스 멤버 상담 예약</a></div>
+    <header>
+        <h1><a href="#"><img src="images/logo_w.png" alt=""></a></h1>
+        <nav><a href="#">MENU</a></nav>
+    </header>
+    <main>
+        <div class="bg bg1">
+            <div class="txt"><h1>banyan tree haeundae busan</h1></div>
+        </div>
+        <div class="bg bg2">
+            <div class="txt">
+                <h1>the best sanctuary for the senses</h1>
+                <p>최상의 모든 조건, 반얀트리를 빛내는 브랜드 컬렉션, 그 중에서도 반약트리(Banyan Tree)는<br>명실상부한 럭셔리 호스피탈리티의 최상급 브랜드입니다.<br>전세계의 가장 아름답고 장엄한 자연 속에서 누리는 지역 고유의 경험.<br>최고의 휴양을 선사하는 반얀트리를 만나보십시오.</p>
+            </div>
+        </div>
+        <div class="bg bg3">
+            <div class="txt">
+                <h1>banyan tree haeundae</h1>
+                <p>부산의 아름다운 오시리아, 그 곳 해변과 한 걸음.<br>귀하께 2025년 반얀트리 해운대 부산의 탄생 소식을 전합니다.<br>세계 곳곳에서 경험하던 반약트리의 휴식, 그 이상을 이제, 부산에서도 만나실 수 있습니다.</p>
+            </div>
+        </div>
+        <div class="bg bg4">
+            <div class="txt">
+                <h1>a home in the perfect world</h1>
+                <p>반얀트리는 22개 국가에 48개의 호텔과 리조트, 64개의 스파, 골프 코스 및 레지던스를 운영하는 글로벌 기업입니다.<br>
+                    완벽한 안식처를 향한 멈추지 않는 반얀트리의 노력그것은 이미, 국제적 권위를 가진 2700여 개 이상의<br>
+                    수상 경력이 증명하고 있습니다. 반얀트리 해운대 부산과 함께 세계 곳곳 이름 난 비경 속의 반얀트리를 만나십시오.<br>
+                    지상 최고의 휴식을 선사하겠습니다.</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p class="logo"><img src="images/footer_logo.jpg" alt=""></p>
+        <p class="copy">copyright &copy; 2022 banyan tree haendaevusan. all rights reserved.</p>
+    </footer>
+    <!-- 스크롤 트리거 플러그인 준비 URL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+    <!-- 내부스크립트 -->
+    <script>
+        //1.뷰포트(화면 보이는 영역)에서 A(B를 감싼 부모영역)가 보일 때
+        //2.B에 애니메이션을 적용한다.
+        /*
+        gsap.to('애니메이션적용대상 B',{
+            scrollTrigger:'뷰포트에서 A가 보일 때',
+            애니메이션옵션:값
+        })
+        */
+        //css 가지고 있던 값을 시작값으로 구분하고 to 적용
+        //.bg2 h1{opacity:0.9}
+        /* gsap.to('.bg2 h1',{
+            scrollTrigger:'.bg2',
+            duration:1,
+            x:200, y:-50, opacity:0.5
+        }) */
+        //fromTo
+        /*  gsap.fromTo('.bg2 h1', {
+            //from
+            opacity:0,
+            scale:0.5,
+            borderRadius:0,
+        },{
+            //to
+            opacity:1,
+            scale:1.2,
+            borderRadius:50,
+            duration:1.5,
+            scrollTrigger:'.bg2'
+        })
+        gsap.to('.bg3 h1', {
+            duration:1,
+            scrollTrigger:'.bg3',
+            y:-10, x:90,
+            scale:1.1
+        })
+        gsap.fromTo('bg4 h1', {
+            opacity:0,
+
+        },{
+            duration:2,
+            scrollTrigger:'.bg4',
+            opacity:1,
+        }) */
+        //scrollTrigger + classList.add()
+        /*
+        ScrollTrigger.create({
+            trigger:'적용대상',
+            onEnter:()=>대상.classList.add(적용클래스명)
+        })
+        */
+        const bg3H1 = document.querySelector('.bg3 h1')
+        ScrollTrigger.create({
+            trigger:'.bg3 h1',
+            onEnter:()=>bg3H1.classList.add('active')
+        })
+    </script>
+</body>
+</html>
